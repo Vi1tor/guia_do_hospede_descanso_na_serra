@@ -1,22 +1,31 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
-import { CATEGORIES, GALLERY_IMAGES } from '../data';
-import { Carousel } from './Carousel';
+import { CATEGORIES } from '../data';
 
 interface Props {
   onSelectCategory: (id: string) => void;
   onBack: () => void;
 }
 
+const BACKGROUND_IMAGE = '/gallery/chale-9.jpeg';
+
 export function MenuScreen({ onSelectCategory, onBack }: Props) {
   const regularCategories = CATEGORIES.filter(c => !c.highlight);
   const highlightCategories = CATEGORIES.filter(c => c.highlight);
 
   return (
-    <div className="flex flex-col min-h-full pb-20">
+    <div className="relative flex flex-col min-h-full pb-20">
+      {/* Background photo behind everything */}
+      <img
+        src={BACKGROUND_IMAGE}
+        alt=""
+        className="fixed inset-0 w-full h-full object-cover z-0"
+      />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-black/10 via-black/40 to-black/70" />
+
       {/* Header */}
-      <header className="sticky top-0 z-20 bg-surface-50/90 backdrop-blur-md border-b border-surface-200 px-4 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-20 bg-surface-50/80 backdrop-blur-md border-b border-surface-200/60 px-4 py-4 flex items-center justify-between">
         <button
           onClick={onBack}
           className="p-2 -ml-2 text-primary-900 hover:bg-surface-100 rounded-full transition-colors"
@@ -31,20 +40,10 @@ export function MenuScreen({ onSelectCategory, onBack }: Props) {
       </header>
 
       {/* Content */}
-      <main className="flex-1 px-4 py-6 md:px-8 lg:px-12 max-w-4xl w-full mx-auto">
-        <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-2xl shadow-md overflow-hidden mb-8">
-          <Carousel
-            images={GALLERY_IMAGES}
-            fill
-            className="absolute inset-0 w-full h-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 pointer-events-none" />
-          <div className="absolute inset-0 flex items-center justify-center px-8 pb-10 pointer-events-none">
-            <p className="text-white text-center text-sm sm:text-base font-medium drop-shadow-lg max-w-xs sm:max-w-md">
-              Selecione uma categoria abaixo para ver as informações detalhadas.
-            </p>
-          </div>
-        </div>
+      <main className="relative z-10 flex-1 px-4 py-6 md:px-8 lg:px-12 max-w-4xl w-full mx-auto">
+        <p className="text-white text-sm text-center mb-8 px-4 drop-shadow-lg font-medium">
+          Selecione uma categoria abaixo para ver as informações detalhadas.
+        </p>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {regularCategories.map((category, index) => {
@@ -56,7 +55,7 @@ export function MenuScreen({ onSelectCategory, onBack }: Props) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05, duration: 0.3 }}
                 onClick={() => onSelectCategory(category.id)}
-                className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-surface-100 text-left hover:shadow-md hover:border-surface-200 transition-all active:scale-[0.98]"
+                className="flex items-center gap-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-surface-100 text-left hover:shadow-md hover:border-surface-200 transition-all active:scale-[0.98]"
               >
                 <div className="w-12 h-12 flex-shrink-0 bg-surface-50 rounded-full flex items-center justify-center text-primary-800">
                   <Icon className="w-6 h-6 stroke-[1.5]" />
