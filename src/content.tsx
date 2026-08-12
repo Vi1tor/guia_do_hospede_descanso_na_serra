@@ -1,5 +1,73 @@
 import React, { useState } from 'react';
-import { Copy, AlertTriangle, AlertCircle, Info, Check, Ban, MapPin, Navigation } from 'lucide-react';
+import { Copy, AlertTriangle, AlertCircle, Info, Check, Ban, MapPin, Navigation, RotateCcw } from 'lucide-react';
+
+export function CancelamentoContent() {
+  return (
+    <div className="space-y-4 text-text-main">
+      <div className="bg-white p-5 rounded-xl border-l-4 border-l-emerald-500 shadow-sm flex gap-4 items-start">
+        <Check className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Direito de Arrependimento</h4>
+          <p className="text-sm">Reembolso integral para cancelamentos solicitados em até <strong>7 dias corridos</strong> após a confirmação da reserva (Art. 49 do CDC).</p>
+        </div>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl border-l-4 border-l-orange-400 shadow-sm flex gap-4 items-start">
+        <AlertTriangle className="w-6 h-6 text-orange-500 flex-shrink-0 mt-0.5" />
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Após o Prazo Legal</h4>
+          <p className="text-sm">Passados os 7 dias da compra, não haverá reembolso ou estorno de valores pagos, independentemente da data do check-in.</p>
+        </div>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl border-l-4 border-l-red-500 shadow-sm flex gap-4 items-start">
+        <Ban className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">No-Show (Não Comparecimento)</h4>
+          <p className="text-sm">O não comparecimento na data reservada sem aviso prévio resultará na retenção de <strong>100% do valor pago</strong>.</p>
+        </div>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl border-l-4 border-l-primary-700 shadow-sm flex gap-4 items-start">
+        <RotateCcw className="w-6 h-6 text-primary-700 flex-shrink-0 mt-0.5" />
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-1">Prazo de Estorno</h4>
+          <p className="text-sm">Para casos dentro do direito de arrependimento, o estorno será processado em até <strong>7 dias</strong>.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const BREAKFAST_ITEMS = [
+  'Café', 'Leite', 'Suco natural de laranja', 'Achocolatado em pó', 'Chá',
+  'Pão francês', 'Pães de queijo', 'Fruta', 'Danone', 'Bolo',
+  'Manteiga', 'Requeijão', 'Queijo', 'Presunto', 'Ovos mexidos',
+  'Açúcar', 'Adoçante'
+];
+
+export function CafeContent() {
+  return (
+    <div className="space-y-6 text-text-main">
+      <div className="bg-surface-100 p-4 rounded-xl text-sm flex items-start gap-3">
+        <ClockIcon />
+        <span>Café da manhã servido no quarto às <strong>9h</strong>.</span>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
+        <h3 className="font-serif text-lg text-primary-900 mb-4">Itens</h3>
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+          {BREAKFAST_ITEMS.map(item => (
+            <li key={item} className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export function CheckinContent() {
   return (
@@ -82,7 +150,7 @@ export function WifiContent() {
   const wifiInfo = [
     { chale: 1, rede: "Descanso na Serra 1", senha: "descanso380" },
     { chale: 2, rede: "Descanso na Serra 2", senha: "descanso380" },
-    { chale: 3, rede: "Descanso na Serra 3", senha: "descanso380" },
+    { chale: 3, rede: "Descanso na Serra 3", senha: "Descanso380" },
   ];
 
   const currentWifi = wifiInfo.find(w => w.chale === selectedChale)!;

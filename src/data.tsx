@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, CheckCircle, Wifi, ShieldAlert, Droplets, Thermometer, Briefcase, MapPin, LucideIcon } from 'lucide-react';
+import { Clock, CheckCircle, Wifi, ShieldAlert, Droplets, Thermometer, Briefcase, MapPin, Coffee, FileText, LucideIcon } from 'lucide-react';
 import {
   CheckinContent,
   ArrumacaoContent,
@@ -8,7 +8,9 @@ import {
   BanheiraContent,
   LencolContent,
   EsquecidosContent,
-  LocalizacaoContent
+  LocalizacaoContent,
+  CafeContent,
+  CancelamentoContent
 } from './content';
 
 export const GALLERY_IMAGES: string[] = [
@@ -37,6 +39,12 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Check-in e Check-out',
     icon: Clock,
     content: <CheckinContent />
+  },
+  {
+    id: 'cafe',
+    title: 'Café da Manhã',
+    icon: Coffee,
+    content: <CafeContent />
   },
   {
     id: 'arrumacao',
@@ -73,6 +81,12 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Objetos Esquecidos',
     icon: Briefcase,
     content: <EsquecidosContent />
+  },
+  {
+    id: 'cancelamento',
+    title: 'Política de Cancelamento',
+    icon: FileText,
+    content: <CancelamentoContent />
   },
   {
     id: 'localizacao',
