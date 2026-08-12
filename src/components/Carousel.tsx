@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 
 interface Props {
   images: string[];
@@ -12,7 +11,7 @@ interface Props {
 
 export function Carousel({
   images,
-  interval = 4500,
+  interval = 5000,
   className = '',
   imageClassName = '',
   showDots = true,
@@ -32,28 +31,28 @@ export function Carousel({
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={images[index]}
-          src={images[index]}
-          alt=""
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.9, ease: 'easeInOut' }}
-          className={`${fill ? 'absolute inset-0 w-full h-full' : 'w-full h-full'} object-cover ${imageClassName}`}
-        />
-      </AnimatePresence>
+      <div className={fill ? 'absolute inset-0 w-full h-full' : 'relative w-full h-full'}>
+        {images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === index ? 'opacity-100' : 'opacity-0'
+            } ${imageClassName}`}
+          />
+        ))}
+      </div>
 
       {showDots && images.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+        <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Ver foto ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? 'w-5 bg-white' : 'w-1.5 bg-white/50'
+              className={`h-2 rounded-full transition-all ${
+                i === index ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'
               }`}
             />
           ))}

@@ -32,14 +32,19 @@ export function MenuScreen({ onSelectCategory, onBack }: Props) {
 
       {/* Content */}
       <main className="flex-1 px-4 py-6 md:px-8 lg:px-12 max-w-4xl w-full mx-auto">
-        <Carousel
-          images={GALLERY_IMAGES}
-          className="w-full aspect-[4/3] sm:aspect-video rounded-2xl shadow-md mb-6"
-        />
-
-        <p className="text-text-muted text-sm text-center mb-8 px-4">
-          Selecione uma categoria abaixo para ver as informações detalhadas.
-        </p>
+        <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-2xl shadow-md overflow-hidden mb-8">
+          <Carousel
+            images={GALLERY_IMAGES}
+            fill
+            className="absolute inset-0 w-full h-full"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 flex items-center justify-center px-8 pb-10 pointer-events-none">
+            <p className="text-white text-center text-sm sm:text-base font-medium drop-shadow-lg max-w-xs sm:max-w-md">
+              Selecione uma categoria abaixo para ver as informações detalhadas.
+            </p>
+          </div>
+        </div>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {regularCategories.map((category, index) => {

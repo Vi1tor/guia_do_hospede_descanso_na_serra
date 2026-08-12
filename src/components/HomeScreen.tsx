@@ -15,10 +15,9 @@ export function HomeScreen({ onEnter }: Props) {
       <Carousel
         images={GALLERY_IMAGES}
         fill
-        showDots={false}
         className="absolute inset-0 z-0 w-full h-full"
       />
-      <div className="absolute inset-0 z-0 bg-black/40 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full">
