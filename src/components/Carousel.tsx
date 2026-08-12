@@ -30,7 +30,7 @@ export function Carousel({
   if (images.length === 0) return null;
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`overflow-hidden ${fill ? '' : 'relative'} ${className}`}>
       <div className={fill ? 'absolute inset-0 w-full h-full' : 'relative w-full h-full'}>
         {images.map((src, i) => (
           <img
