@@ -24,7 +24,7 @@ export default function App() {
   const activeCategory = CATEGORIES.find(c => c.id === activeCategoryId) || null;
 
   return (
-    <div className="relative w-full min-h-[100dvh] bg-surface-50 overflow-hidden flex flex-col mx-auto max-w-md md:max-w-3xl lg:max-w-5xl md:shadow-2xl">
+    <div className="relative w-full min-h-[100dvh] bg-surface-50 overflow-hidden flex flex-col">
       <AnimatePresence mode="wait">
         {currentScreen === 'home' && (
           <motion.div
