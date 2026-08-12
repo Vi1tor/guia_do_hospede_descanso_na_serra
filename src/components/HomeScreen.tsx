@@ -17,7 +17,7 @@ export function HomeScreen({ onEnter }: Props) {
         fill
         className="absolute inset-0 z-0 w-full h-full"
       />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/10 via-black/40 to-black/70" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/5 via-black/10 to-black/45" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full">
@@ -26,7 +26,7 @@ export function HomeScreen({ onEnter }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <p className="text-surface-100 uppercase tracking-[0.2em] text-xs font-semibold mb-3">
+          <p className="text-surface-100 uppercase tracking-[0.2em] text-xs font-semibold mb-3 drop-shadow-md">
             Guia do Hóspede
           </p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl text-white font-serif mb-8 leading-[1.1] drop-shadow-lg">
