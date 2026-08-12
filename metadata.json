@@ -1,0 +1,8 @@
+{
+  "name": "Guia do Hóspede — Descanso na Serra",
+  "description": "Guia digital interativo para hóspedes da pousada Descanso na Serra.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
