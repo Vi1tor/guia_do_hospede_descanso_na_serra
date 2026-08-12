@@ -8,6 +8,7 @@ import { HomeScreen } from './components/HomeScreen';
 import { MenuScreen } from './components/MenuScreen';
 import { CategoryScreen } from './components/CategoryScreen';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { FloatingInstagram } from './components/FloatingInstagram';
 import { CATEGORIES } from './data';
 
 export type ScreenType = 'home' | 'menu' | 'category';
@@ -74,6 +75,7 @@ export default function App() {
       </AnimatePresence>
 
       <FloatingWhatsApp />
+      <FloatingInstagram />
     </div>
   );
 }

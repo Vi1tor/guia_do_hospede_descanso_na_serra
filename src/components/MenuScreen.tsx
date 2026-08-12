@@ -33,8 +33,8 @@ export function MenuScreen({ onSelectCategory, onBack }: Props) {
         >
           <ArrowLeft className="w-6 h-6" />
         </button>
-        <h1 className="font-serif text-xl text-primary-900 font-semibold absolute left-1/2 -translate-x-1/2">
-          Menu
+        <h1 className="font-serif text-base sm:text-xl text-primary-900 font-semibold absolute left-1/2 -translate-x-1/2 text-center max-w-[220px] sm:max-w-none truncate">
+          Guia Descanso na Serra
         </h1>
         <div className="w-10" /> {/* Spacer for centering */}
       </header>

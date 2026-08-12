@@ -11,13 +11,13 @@ interface Props {
 export function HomeScreen({ onEnter }: Props) {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-end pb-24 overflow-hidden">
-      {/* Background carousel with overlay */}
+      {/* Background carousel */}
       <Carousel
         images={GALLERY_IMAGES}
         fill
+        showDots={false}
         className="absolute inset-0 z-0 w-full h-full"
       />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/5 via-black/10 to-black/45" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full">
