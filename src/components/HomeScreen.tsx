@@ -19,6 +19,16 @@ export function HomeScreen({ onEnter }: Props) {
         className="absolute inset-0 z-0 w-full h-full"
       />
 
+      {/* Logo */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+        className="absolute top-10 left-1/2 -translate-x-1/2 z-10 w-20 h-20 rounded-full bg-primary-900/60 backdrop-blur-md border border-white/30 shadow-lg flex items-center justify-center p-2"
+      >
+        <img src="/brand/logo.png" alt="Descanso na Serra" className="w-full h-full object-contain" />
+      </motion.div>
+
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full">
         <motion.div

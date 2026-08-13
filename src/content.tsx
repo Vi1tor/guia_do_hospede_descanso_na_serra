@@ -398,24 +398,24 @@ export function EsquecidosContent() {
 
 const PASSEIOS = [
   { name: 'Quadriciclo', phone: '35 9879-3419' },
-  { name: 'Pedra Redonda' },
-  { name: 'Passeio a Cavalo' },
-  { name: 'Tirolesa' },
-  { name: 'Vila Leta' },
-  { name: 'Parque Oschin' },
-  { name: 'Falcoaria' },
-  { name: 'Bar do Gelo' },
-  { name: 'Patinação no Gelo' },
-  { name: 'Fábrica de Sabonete' },
-  { name: 'Fábrica de Chocolate' },
-  { name: 'Destilaria' },
+  { name: 'Pedra Redonda', location: 'Trilha de 926 m, acesso por agências locais' },
+  { name: 'Passeio a Cavalo', phone: '35 99922-4190' },
+  { name: 'Tirolesa (Fazenda Radical)', phone: '35 98817-2645' },
+  { name: 'Vila Leta', location: 'Av. Sol Nascente, 269' },
+  { name: 'Parque Oschin', phone: '35 99753-4333' },
+  { name: 'Falcoaria', phone: '35 98851-5333' },
+  { name: 'Bar do Gelo', phone: '35 3438-2414' },
+  { name: 'Patinação no Gelo', phone: '35 3438-1440' },
+  { name: 'Fábrica de Sabonete', location: 'Av. Sol Nascente, 1703' },
+  { name: 'Fábrica de Chocolate', phone: '35 3438-2844' },
+  { name: 'Destilaria', location: 'Rua do Mato, 75 — Distrito de Monte Verde' },
 ];
 
 export function PasseiosContent() {
   return (
     <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
       <ul className="divide-y divide-surface-100">
-        {PASSEIOS.map(({ name, phone }) => (
+        {PASSEIOS.map(({ name, phone, location }) => (
           <li key={name} className="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
             <span className="flex items-center gap-3 text-text-main">
               <Compass className="w-5 h-5 text-primary-700 flex-shrink-0" />
@@ -429,6 +429,12 @@ export function PasseiosContent() {
                 <Phone className="w-4 h-4" />
                 {phone}
               </a>
+            )}
+            {location && (
+              <span className="flex items-center gap-1.5 text-xs text-text-muted text-right flex-shrink-0 max-w-[140px]">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                {location}
+              </span>
             )}
           </li>
         ))}
