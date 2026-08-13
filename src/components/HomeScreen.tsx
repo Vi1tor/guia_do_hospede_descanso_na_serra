@@ -10,7 +10,7 @@ interface Props {
 
 export function HomeScreen({ onEnter }: Props) {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-end pb-24 overflow-hidden">
+    <div className="relative w-full h-full flex flex-col items-center justify-end pb-36 sm:pb-24 overflow-hidden">
       {/* Background carousel */}
       <Carousel
         images={GALLERY_IMAGES}
@@ -50,7 +50,7 @@ export function HomeScreen({ onEnter }: Props) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.4 }}
           onClick={onEnter}
-          className="group flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-medium tracking-wide hover:bg-white/20 transition-all w-full max-w-xs justify-center shadow-xl"
+          className="group flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-medium tracking-wide hover:bg-white/20 transition-all w-full max-w-[260px] sm:max-w-xs justify-center shadow-xl"
         >
           Ver Informações
           <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
