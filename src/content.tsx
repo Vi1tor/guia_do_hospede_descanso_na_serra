@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { Copy, AlertTriangle, AlertCircle, Info, Check, Ban, MapPin, Navigation, RotateCcw } from 'lucide-react';
+import { Copy, AlertTriangle, AlertCircle, Info, Check, Ban, MapPin, Navigation, RotateCcw, Phone, Compass, UtensilsCrossed } from 'lucide-react';
+
+function telHref(phone: string) {
+  return `tel:+55${phone.replace(/\D/g, '')}`;
+}
 
 export function CancelamentoContent() {
   return (
@@ -39,11 +43,13 @@ export function CancelamentoContent() {
   );
 }
 
-const BREAKFAST_ITEMS = [
-  'Café', 'Leite', 'Suco natural de laranja', 'Achocolatado em pó', 'Chá',
-  'Pão francês', 'Pães de queijo', 'Fruta', 'Danone', 'Bolo',
-  'Manteiga', 'Requeijão', 'Queijo', 'Presunto', 'Ovos mexidos',
-  'Açúcar', 'Adoçante'
+const TRAY_ITEMS = [
+  'Café', 'Leite', 'Suco natural de laranja', 'Pão francês', 'Bolo',
+  'Pães de queijo', 'Pães de frios', 'Fruta', 'Danone', 'Manteiga', 'Frios'
+];
+
+const EXTRA_ITEMS = [
+  'Requeijão', 'Ovos mexidos', 'Achocolatado em pó', 'Chá', 'Adoçante'
 ];
 
 export function CafeContent() {
@@ -55,9 +61,21 @@ export function CafeContent() {
       </div>
 
       <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
-        <h3 className="font-serif text-lg text-primary-900 mb-4">Itens</h3>
+        <h3 className="font-serif text-lg text-primary-900 mb-4">Itens que vão na bandeja!</h3>
         <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
-          {BREAKFAST_ITEMS.map(item => (
+          {TRAY_ITEMS.map(item => (
+            <li key={item} className="flex items-center gap-2 text-sm">
+              <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
+        <h3 className="font-serif text-lg text-primary-900 mb-4">Pode ser adicionado sem custo</h3>
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+          {EXTRA_ITEMS.map(item => (
             <li key={item} className="flex items-center gap-2 text-sm">
               <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span>{item}</span>
@@ -374,6 +392,77 @@ export function EsquecidosContent() {
           Checkout até 12:00 (meio-dia).
         </p>
       </div>
+    </div>
+  );
+}
+
+const PASSEIOS = [
+  { name: 'Quadriciclo', phone: '35 9879-3419' },
+  { name: 'Pedra Redonda' },
+  { name: 'Passeio a Cavalo' },
+  { name: 'Tirolesa' },
+  { name: 'Vila Leta' },
+  { name: 'Parque Oschin' },
+  { name: 'Falcoaria' },
+  { name: 'Bar do Gelo' },
+  { name: 'Patinação no Gelo' },
+  { name: 'Fábrica de Sabonete' },
+  { name: 'Fábrica de Chocolate' },
+  { name: 'Destilaria' },
+];
+
+export function PasseiosContent() {
+  return (
+    <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
+      <ul className="divide-y divide-surface-100">
+        {PASSEIOS.map(({ name, phone }) => (
+          <li key={name} className="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
+            <span className="flex items-center gap-3 text-text-main">
+              <Compass className="w-5 h-5 text-primary-700 flex-shrink-0" />
+              {name}
+            </span>
+            {phone && (
+              <a
+                href={telHref(phone)}
+                className="flex items-center gap-1.5 text-sm text-primary-800 font-medium hover:text-primary-900 flex-shrink-0"
+              >
+                <Phone className="w-4 h-4" />
+                {phone}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+const RESTAURANTES = [
+  { name: 'Burger House (Delivery)', phone: '35 9720-4480' },
+  { name: 'Pizzaria Nápoles', phone: '35 3438-2431' },
+  { name: 'Restaurante Capricho', phone: '35 3438-1341' },
+];
+
+export function DeliveryContent() {
+  return (
+    <div className="bg-white p-5 rounded-xl border border-surface-200 shadow-sm">
+      <ul className="divide-y divide-surface-100">
+        {RESTAURANTES.map(({ name, phone }) => (
+          <li key={name} className="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
+            <span className="flex items-center gap-3 text-text-main">
+              <UtensilsCrossed className="w-5 h-5 text-primary-700 flex-shrink-0" />
+              {name}
+            </span>
+            <a
+              href={telHref(phone)}
+              className="flex items-center gap-1.5 text-sm text-primary-800 font-medium hover:text-primary-900 flex-shrink-0"
+            >
+              <Phone className="w-4 h-4" />
+              {phone}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
